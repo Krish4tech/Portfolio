@@ -1,0 +1,169 @@
+<!-- Tells the browser: "this file is HTML5" -->
+<!DOCTYPE html>
+<!-- <html> = the root of the whole page. lang="en" = page language is English (helps screen readers & Google) -->
+<html lang="en">
+<!-- <head> = invisible settings area of the page (not shown on screen) -->
+<head>
+  <!-- Allows all characters/symbols to display properly (UTF-8 encoding) -->
+  <meta charset="UTF-8">
+  <!-- Makes the page fit mobile screens properly (width = device width, no zoomed-out view) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Text shown on the browser tab -->
+  <title>Shri Krishna R | AI / Robotics / Systems</title>
+  <!-- Speeds up connection to Google Fonts server (fonts load faster) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- Same as above, for the server that holds the actual font files -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Loads 2 fonts: Orbitron (futuristic, for headings) and JetBrains Mono (coding style, for normal text) -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Connects your CSS file (style.css) so the design/colors/layout get applied -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<!-- <body> = everything the visitor can SEE on the page -->
+<body>
+
+<!-- .hero = the big full-screen box that holds the entire first section (background + nav + text + image) -->
+<div class="hero">
+
+  <!-- ============ DECORATIVE LAYERS ============ -->
+  <!-- These are only for looks (no text). CSS draws them. -->
+
+  <!-- Tiny white dots in the background = the stars of space -->
+  <div class="stars"></div>
+  <!-- Big blue glowing circle at top-right = planet Earth -->
+  <div class="earth"></div>
+  <!-- Sci-fi corner border line at the TOP-LEFT of the screen -->
+  <div class="hud hud-tl"></div>
+  <!-- Sci-fi corner border line at the BOTTOM-RIGHT of the screen -->
+  <div class="hud hud-br"></div>
+  <!-- Small glowing vertical bar on the LEFT edge -->
+  <span class="hud-tick tick-left"></span>
+  <!-- Small glowing vertical bar on the RIGHT edge -->
+  <span class="hud-tick tick-right"></span>
+
+  <!-- ============ HEADER ============ -->
+  <!-- <header class="nav"> = the top bar of the page (contains the menu + social icons) -->
+  <header class="nav">
+    <!-- (Empty space: a logo/brand name can be placed here later. CSS class .brand is ready for it.) -->
+    
+
+    <!-- <nav> = the menu links. aria-label helps blind users' screen readers know it's the main menu -->
+    <nav class="menu" aria-label="Primary">
+      <!-- Link to the section with id="home". class "active" = highlighted as current page -->
+      <a href="#home" class="active">HOME</a>
+      <!-- Link to a section with id="about" (you need to create that section later) -->
+      <a href="#about">ABOUT</a>
+      <!-- Link to a section with id="story" -->
+      <a href="#story">STORY</a>
+      <!-- Link to a section with id="gallery" -->
+      <a href="#gallery">GALLERY</a>
+      <!-- Link to a section with id="contact" -->
+      <a href="#contact">CONTACT</a>
+    </nav>
+
+    <!-- Box that holds the 3 social icons (GitHub, LinkedIn, Email) -->
+    
+  </header>
+
+  <!-- ============ MAIN ============ -->
+  <!-- <main> = the main content area. id="home" lets the HOME menu link jump here. class="content" = layout box (text left, image right) -->
+  <main id="home" class="content">
+
+    <!-- LEFT SIDE: holds all the text and buttons -->
+    <div class="copy">
+      <!-- The three small words at the top: AI / ROBOTICS / SYSTEMS -->
+      <p class="tags">
+        <!-- "AI" in cyan color (t1) -->
+        <span class="t1">AI</span>
+        <!-- "/" separator symbol (the <i> tag is only used for styling the slash) -->
+        <i>/</i>
+        <!-- "ROBOTICS" in green color (t2) -->
+        <span class="t2">ROBOTICS</span>
+        <i>/</i>
+        <!-- "SYSTEMS" in violet color (t3) -->
+        <span class="t3">SYSTEMS</span>
+        <!-- Small glowing line after the words (decoration only) -->
+        <b class="tag-dash"></b>
+      </p>
+
+      <!-- h1 = the main big heading of the page = your name (shown on two lines) -->
+      <h1>
+        <!-- First line "SHRI" in white -->
+        <span class="first">SHRI</span>
+        <!-- Second line "KRISHNA R" in blue gradient -->
+        <span class="last">KRISHNA R</span>
+      </h1>
+      <!-- Decorative line (blue + green) under your name -->
+      <span class="title-line"></span>
+
+      <!-- Short intro sentence under your name. <br> = line break (starts a new line) -->
+      <p class="tagline">
+        Exploring the intersection of intelligent systems,<br>
+        engineering, and ideas that deserve to become reality.
+      </p>
+
+      <!-- Box holding the 6 white pill-shaped buttons -->
+      <div class="buttons">
+        <!-- BUTTON 1: PROJECTS. href="#projects" jumps to section id="projects". --c:#2f6bff sets this button's glow color to blue -->
+        <a href="#projects" class="btn" style="--c:#2f6bff">
+          <!-- Folder icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M3 7.500A1.500 1.500 0 0 1 4.500 6h4.200l2 2.200h8.800A1.500 1.500 0 0 1 21 9.700V18a1.500 1.500 0 0 1-1.500 1.500h-15A1.500 1.500 0 0 1 3 18V7.500Z"/><path d="M3 11h18"/></svg>
+          <!-- Button text, then a small arrow (<em class="arrow"> is drawn by CSS) -->
+          <span>PROJECTS</span><em class="arrow"></em>
+        </a>
+        <!-- BUTTON 2: EXPERIENCE. Links to id="experience". Glow color = green -->
+        <a href="#experience" class="btn" style="--c:#22d45a">
+          <!-- Briefcase icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3" y="7" width="18" height="12.500" rx="2"/><path d="M9 7V5.500A1.500 1.500 0 0 1 10.500 4h3A1.500 1.500 0 0 1 15 5.500V7M3 13h18"/></svg>
+          <span>EXPERIENCE</span><em class="arrow"></em>
+        </a>
+        <!-- BUTTON 3: SKILLS. Links to id="skills". Glow color = violet -->
+        <a href="#skills" class="btn" style="--c:#7a4dff">
+          <!-- Gear/chip style icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2.500v3M12 18.500v3M2.500 12h3M18.500 12h3M5.300 5.300l2.100 2.100M16.600 16.600l2.100 2.100M5.300 18.700l2.100-2.100M16.600 7.400l2.100-2.100"/><circle cx="12" cy="12" r="6.500"/></svg>
+          <span>SKILLS</span><em class="arrow"></em>
+        </a>
+        <!-- BUTTON 4: CERTIFICATIONS. Links to id="certifications". Glow color = red -->
+        <a href="#certifications" class="btn" style="--c:#ff3b3b">
+          <!-- Document/certificate icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6V3Z"/><path d="M14 3v4h4M9 12h6M9 15.500h6M9 8.500h2"/></svg>
+          <span>CERTIFICATIONS</span><em class="arrow"></em>
+        </a>
+        <!-- BUTTON 5: VOICES OF TRUST (testimonials). Links to id="voices". Glow color = deep blue -->
+        <a href="#voices" class="btn" style="--c:#2f4bff">
+          <!-- Group of people icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><circle cx="12" cy="8" r="3"/><circle cx="5.500" cy="10" r="2.200"/><circle cx="18.500" cy="10" r="2.200"/><path d="M6.500 20v-1.500A3.500 3.500 0 0 1 10 15h4a3.500 3.500 0 0 1 3.500 3.500V20M2 18.500a3 3 0 0 1 3-3M22 18.500a3 3 0 0 0-3-3"/></svg>
+          <span>VOICES OF TRUST</span><em class="arrow"></em>
+        </a>
+        <!-- BUTTON 6: MEDIA HANDLES (social media). Links to id="media". Glow color = cyan -->
+        <a href="#media" class="btn" style="--c:#16c7d9">
+          <!-- Share icon (3 dots connected) -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><circle cx="6" cy="12" r="2.500"/><circle cx="18" cy="6" r="2.500"/><circle cx="18" cy="18" r="2.500"/><path d="m8.300 10.800 7.400-3.600M8.300 13.200l7.400 3.600"/></svg>
+          <span>MEDIA HANDLES</span><em class="arrow"></em>
+        </a>
+      </div>
+
+      <!-- "Scroll to explore" hint at the bottom-left -->
+      <div class="scroll-hint">
+        <!-- Mouse icon; the <i> inside is the little moving line (animated by CSS) -->
+        <span class="mouse"><i></i></span>
+        <!-- Text next to the mouse icon -->
+        <span class="scroll-text">SCROLL TO EXPLORE</span>
+        <!-- Thin decorative line after the text -->
+        <span class="scroll-line"></span>
+      </div>
+    </div>
+
+    <!-- ===== SPACE FOR CHARACTER IMAGE =====
+         Drop your <img src="character.png" alt="Shri Krishna"> inside this div -->
+    <!-- RIGHT SIDE: empty box reserved for your character picture -->
+    <div class="figure" id="character-slot">
+      <!-- To show your image: delete the comment symbols around the next line (the opening and closing ones). alt = text shown if image fails to load -->
+      <!-- <img src="character.png" alt="Shri Krishna"> -->
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>
