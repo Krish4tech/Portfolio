@@ -109,6 +109,22 @@ a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; border-ra
 
 .menu { flex: 0 0 auto; display: flex; gap: clamp(24px, 4vw, 64px); font-size: 14px; letter-spacing: .1em; font-weight: 500; }
 .menu a { position: relative; padding: 24px 0 22px; color: var(--muted); transition: color .2s; }
+
+/* Active navigation link */
+.menu a.active {
+  color: var(--blue);
+  opacity: 1;
+  pointer-events: none;
+  cursor: default;
+  border-bottom: 2px solid var(--blue);
+}
+
+/* Prevent hover effects on the active link */
+.menu a.active:hover {
+  color: var(--blue);
+  transform: none;
+}
+
 .menu a:hover { color: #fff; }
 .menu a.active { color: #fff; }
 .menu a::after {
@@ -144,8 +160,23 @@ a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; border-ra
 .tag-dash { width: 44px; height: 2px; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); margin-left: 4px; }
 
 /* name */
-h1 { font-family: var(--display); font-weight: 900; line-height: .98; letter-spacing: .01em; font-size: clamp(54px, 8.4vw, 124px); }
-h1 span { display: block; }
+
+/* name */
+h1 {
+  font-family: var(--display);
+  font-weight: 900;
+  line-height: .98;
+  letter-spacing: .01em;
+  font-size: clamp(42px, 6vw, 92px);
+  max-width: 100%;
+}
+
+h1 span {
+  display: block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
 .first { color: #fff; text-shadow: 0 0 30px rgba(120, 180, 255, .25); }
 .last {
   background: linear-gradient(180deg, #5fb2ff 0%, #2a6bff 55%, #1c4fe0 100%);
@@ -167,23 +198,41 @@ h1 span { display: block; }
 }
 
 /* buttons */
-.buttons { display: flex; flex-wrap: wrap; gap: 18px 16px; max-width: 780px; }
+
+/* buttons */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  width: 100%;
+  max-width: 780px;
+}
+
 .btn {
   --c: var(--blue);
-  flex: 1 1 calc(33.333% - 16px); min-width: 220px;
+  min-width: 0;
+  width: 100%;
   position: relative;
-  display: flex; align-items: center; gap: 14px;
-  height: 58px; padding: 0 22px 0 26px;
-  background: #fff; color: #10172a;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 54px;
+  padding: 10px 14px;
+  background: #fff;
+  color: #10172a;
   border-radius: 999px;
-  font-size: 13px; font-weight: 500; letter-spacing: .1em; white-space: nowrap;
+  font-size: clamp(10px, .85vw, 13px);
+  font-weight: 500;
+  letter-spacing: .04em;
+  white-space: normal;
   box-shadow:
-    inset 3px 0 0 -0px var(--c),
+    inset 3px 0 0 var(--c),
     -4px 0 14px -2px var(--c),
     0 0 0 1px rgba(255, 255, 255, .6),
     0 0 18px rgba(120, 160, 255, .25);
   transition: transform .2s ease, box-shadow .2s ease;
 }
+
 .btn::before { /* coloured left edge */
   content: ""; position: absolute; left: 0; top: 4px; bottom: 4px; width: 22px;
   border-left: 3px solid var(--c); border-radius: 999px 0 0 999px;
@@ -218,15 +267,50 @@ h1 span { display: block; }
 .figure img { display: block; max-width: 100%; max-height: 88vh; width: auto; height: auto; object-fit: contain; filter: drop-shadow(0 0 40px rgba(40, 120, 255, .25)); }
 
 /* ---------- responsive ---------- */
+
 @media (max-width: 1100px) {
-  .content { flex-direction: column; align-items: stretch; }
-  .copy { flex: none; padding-left: 0; }
-  .figure { flex: none; order: -1; min-height: 40vh; }
-  .btn { flex-basis: calc(50% - 16px); }
-  .menu { gap: 22px; }
+  .hero {
+    padding-inline: clamp(20px, 3vw, 36px);
+  }
+
+  .content {
+    gap: 20px;
+  }
+
+  .copy {
+    padding-left: 0;
+  }
+
+  .menu {
+    gap: clamp(12px, 2vw, 22px);
+    font-size: 12px;
+  }
+
+  h1 {
+    font-size: clamp(40px, 5.5vw, 68px);
+  }
+
+  .buttons {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
+
 @media (max-width: 760px) {
-  .menu { display: none; }
+  
+.menu {
+  display: flex;
+  flex: 1 1 100%;
+  order: 3;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 20px;
+  font-size: 11px;
+}
+
+.menu a {
+  padding: 8px 0;
+}
+
   .brand span { font-size: 13px; }
   .social { gap: 18px; }
   .tags { font-size: 14px; gap: 10px; }
