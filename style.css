@@ -56,31 +56,6 @@ a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; border-ra
     radial-gradient(1px 1px at 36% 40%, #fff5, transparent);
 }
 
-/* planet, top-right */
-.earth {
-  position: absolute; z-index: -2;
-  width: min(62vw, 980px); aspect-ratio: 1;
-  right: -14vw; top: -8vw;
-  border-radius: 50%;
-  background:
-    /* city lights */
-    radial-gradient(1.5px 1.5px at 30% 55%, #ffd58a, transparent),
-    radial-gradient(1.5px 1.5px at 36% 62%, #ffc56b, transparent),
-    radial-gradient(2px 2px at 42% 70%, #ffd58a, transparent),
-    radial-gradient(1.5px 1.5px at 48% 78%, #ffb85a, transparent),
-    radial-gradient(1.5px 1.5px at 38% 48%, #ffd58a, transparent),
-    radial-gradient(2px 2px at 54% 58%, #ffc56b, transparent),
-    radial-gradient(1.5px 1.5px at 60% 66%, #ffd58a, transparent),
-    radial-gradient(1.5px 1.5px at 46% 40%, #ffb85a, transparent),
-    radial-gradient(1.5px 1.5px at 66% 50%, #ffd58a, transparent),
-    /* surface */
-    radial-gradient(circle at 28% 40%, #1b4f96 0%, #0c2a5c 40%, #040d22 72%, #01040d 100%);
-  box-shadow:
-    inset 28px 0 60px -10px rgba(70, 160, 255, .55),
-    inset 4px 0 12px rgba(150, 210, 255, .8),
-    -10px 0 70px rgba(40, 120, 255, .35);
-}
-
 /* ---------- HUD frame decoration ---------- */
 .hud { position: absolute; z-index: -1; width: 110px; height: 110px; pointer-events: none; }
 .hud-tl { top: 18px; left: 14px; border-top: 1px solid rgba(80, 140, 255, .45); border-left: 1px solid rgba(80, 140, 255, .45); border-top-left-radius: 28px; }
@@ -94,15 +69,27 @@ a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; border-ra
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 24px;
   height: 72px;
   padding-top: 8px;
-  justify-content: center;
+  font-family: 'Wallpoet', sans-serif;
 }
+
 .nav::after {
-  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
-  background: linear-gradient(90deg, rgba(60, 120, 255, .15), rgba(60, 120, 255, .6) 40%, rgba(34, 224, 107, .7) 75%, rgba(60, 120, 255, .2));
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(60, 120, 255, .15),
+    rgba(60, 120, 255, .6) 40%,
+    rgba(34, 224, 107, .7) 75%,
+    rgba(60, 120, 255, .2)
+  );
 }
 
 .brand { flex: 1; display: flex; align-items: center; gap: 14px; font-family: var(--display); font-weight: 500; letter-spacing: .12em; font-size: 15px; }
@@ -126,14 +113,6 @@ a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; border-ra
 }
 
 .menu a:hover { color: #fff; }
-
-.menu a.active {
-  color: var(--blue);
-  border-bottom: 2px solid var(--blue);
-  cursor: default;
-  pointer-events: none;
-  opacity: 1;
-}
 
 .menu a::after {
   content: ""; position: absolute; left: -10px; right: -10px; bottom: -1px; height: 3px; border-radius: 3px;
@@ -159,21 +138,21 @@ a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; border-ra
 
 .copy { flex: 1.15 1 0; min-width: 0; padding-left: clamp(0px, 3vw, 48px); }
 
-
-/* tags */
+/* ---------- tags and name ---------- */
 .tags {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 18px;
   font-size: 16px;
   font-weight: 500;
   letter-spacing: .14em;
-  margin-bottom: 2px;
+  margin-bottom: 24px; /* space between AI / ROBOTICS / SYSTEMS and name */
 }
 
 .tags i {
   font-style: normal;
-  color: var(--white);
+  color: var(--white, #ffffff);
   opacity: .7;
 }
 
@@ -191,34 +170,36 @@ a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; border-ra
   margin-left: 4px;
 }
 
-/* name */
+/* Name — Zen Dots: both lines inherit exactly the same size */
 h1 {
-  font-family: 'Mokoto Glitch 1', sans-serif;
-  font-weight: 900;
-  line-height: .98;
-  letter-spacing: .01em;
-  font-size: clamp(42px, 6vw, 92px);
-  max-width: 100%;
+  font-family: 'Zen Dots', sans-serif;
+  font-size: clamp(32px, 5vw, 76px);
+  font-weight: 400;
+  line-height: .95; /* tighter space between SHRI and KRISHNA R */
+  letter-spacing: 0;
+  margin: 0;
+  padding: 0;
   color: #ffffff;
 }
 
-h1 span {
+h1 .first,
+h1 .last {
   display: block;
-  max-width: 100%;
-  overflow-wrap: anywhere;
-  color: #ffffff;
-}
-
-/* First and last name */
-.first,
-.last {
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  margin: 0;
+  padding: 0;
   color: #ffffff;
   background: none;
+  -webkit-text-fill-color: #ffffff;
   -webkit-background-clip: initial;
   background-clip: initial;
-  -webkit-text-fill-color: #ffffff;
   text-shadow: none;
   filter: none;
+  overflow-wrap: normal;
 }
 
 .title-line {
@@ -229,10 +210,17 @@ h1 span {
 }
 
 /* tagline */
+
 .tagline {
-  margin: 34px 0 40px; padding-left: 20px;
-  border-left: 2px solid var(--blue);
-  font-size: clamp(14px, 1.35vw, 18px); line-height: 1.6; color: #dbe5ff; letter-spacing: .02em;
+  font-family: 'Michroma', sans-serif;
+  margin: 34px 0 40px;
+  padding-left: 20px;
+  border-left: 4px solid var(--cyan);
+  font-size: clamp(12px, 1.1vw, 15px);
+  line-height: 1.8;
+  color: #dbe5ff;
+  letter-spacing: .09em;
+  font-weight: 600;
 }
 
 /* buttons */
@@ -371,6 +359,65 @@ h1 span {
   .btn { flex-basis: 100%; }
   .scroll-line { display: none; }
 }
+
+/* Realistic Earth globe — requires <img src="earth-texture.jpg"> inside .earth */
+
+.earth {
+  position: absolute;
+  width: clamp(300px, 42vw, 620px);
+  aspect-ratio: 1 / 1;
+  right: -10%;
+  top: -10%;
+  bottom: auto;
+  border-radius: 50%;
+  overflow: hidden;
+  isolation: isolate;
+  z-index: -2;
+  background: #06152c;
+  box-shadow:
+    0 0 25px rgba(70, 150, 255, .4),
+    0 0 70px rgba(30, 100, 255, .25);
+  pointer-events: none;
+}
+
+.earth img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  transform: scale(1.08);
+  transform-origin: center;
+  filter: brightness(.85) saturate(1.2);
+}
+
+
+@media (max-width: 760px) {
+  .earth {
+    width: min(85vw, 460px);
+    right: -24%;
+    bottom: -10%;
+  }
+
+  .tags {
+    gap: 10px;
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: clamp(30px, 8vw, 54px);
+  }
+
+  .buttons {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .mouse i { animation: none; }
