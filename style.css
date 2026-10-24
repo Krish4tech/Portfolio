@@ -294,7 +294,7 @@ h1 .last {
 
 /* ---------- responsive ---------- */
 
-
+/*edited*/
 @media (max-width: 1100px) {
   .hero {
     padding-inline: clamp(20px, 4vw, 48px);
